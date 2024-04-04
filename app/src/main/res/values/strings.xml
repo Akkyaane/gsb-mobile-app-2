@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">gsb-mobile-app</string>
+    <string name="loginInstructions">Veuillez vous connecter pour accéder à votre compte.</string>
+    <string name="loginWelcome">Bienvenue sur l\'intranet GSB</string>
+    <string name="loginEmail">E-mail</string>
+    <string name="loginPassword">Mot de passe</string>
+    <string name="loginButton">Connexion</string>
+    <string name="logout">Déconnexion</string>
+</resources>
