@@ -15,21 +15,28 @@
         android:theme="@style/Theme.Gsbmobileapp"
         tools:targetApi="31">
         <activity
-            android:name=".VisitorPortal"
+            android:exported="true"
+            android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:exported="false"
             android:label="Visitor Portal"
-            android:parentActivityName=".MainActivity"
-            android:exported="false">
+            android:name=".VisitorPortal"
+            android:parentActivityName=".MainActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.gsb_mobile_app.MainActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false"
+            android:label="Create Expense Sheet"
+            android:name=".CreateExpenseSheet"
+            android:parentActivityName=".CreateExpenseSheet">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.gsb_mobile_app.MainActivity" />
         </activity>
     </application>
 

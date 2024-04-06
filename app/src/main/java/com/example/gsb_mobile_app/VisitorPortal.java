@@ -3,36 +3,32 @@ package com.example.gsb_mobile_app;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONArray;
-
 import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class VisitorPortal extends AppCompatActivity {
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-
-    private static final String LOG_TAG = VisitorPortal.class.getSimpleName();
+    Button createExpenseSheet;
+    public static final String EXTRA_MESSAGE = "com.example.gsb_mobile_app.extra.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,40 +43,37 @@ public class VisitorPortal extends AppCompatActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
-        JSONObject jsonObject = null;
-        String id;
-        String firstName = null;
-        String lastName = null;
+        String id, firstName, lastName;
 
         try {
-            jsonObject = new JSONObject(message);
+            JSONObject jsonObject = new JSONObject(message);
             id = jsonObject.getString("user_id");
             firstName = jsonObject.getString("first_name");
-            lastName = jsonObject.getString("last_name");
+            lastName = jsonObject.getString("last_name").toUpperCase();
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
 
-        String user_id = id;
-
         String formattedData = "Bienvenue " + firstName + " " + lastName;
-        Log.d(LOG_TAG, formattedData);
-        TextView welcome = findViewById(R.id.titleWelcome);
+        TextView welcome = findViewById(R.id.visitorPortalTitle);
         welcome.setText(formattedData);
 
+        createExpenseSheet = findViewById(R.id.createExpenseSheetButton);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Récupération des données en cours... Veuillez patienter.");
-        progressDialog.setCancelable(false);
-
         requestQueue = Volley.newRequestQueue(this);
 
-        gettingExpenseSheetsRequest(user_id);
+        progressDialog.setMessage("Récupération des données en cours...");
+        progressDialog.setCancelable(false);
+
+        gettingExpenseSheetsRequest(id);
+
+        createExpenseSheet.setOnClickListener(v -> createExpenseSheet());
     }
 
     private void gettingExpenseSheetsRequest(String user_id) {
-        String gettingExpenseSheetsUrl = "https://jeremiebayon.fr/api/controllers/portals/visitor.php";
+        String gettingExpenseSheetsURL = "https://jeremiebayon.fr/api/controllers/portals/visitor.php";
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, gettingExpenseSheetsUrl, response -> {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, gettingExpenseSheetsURL, response -> {
             progressDialog.dismiss();
             LinearLayout expenseSheetsList = findViewById(R.id.expenseSheetsList);
             LayoutInflater inflater = LayoutInflater.from(VisitorPortal.this);
@@ -91,7 +84,6 @@ public class VisitorPortal extends AppCompatActivity {
                 if (status == 200) {
                     Toast.makeText(VisitorPortal.this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                     JSONArray result = jsonObject.getJSONArray("data");
-                    Log.d("Response", response);
 
                     for (int i = 0; i < result.length(); i++) {
                         JSONObject data = result.getJSONObject(i);
@@ -115,12 +107,12 @@ public class VisitorPortal extends AppCompatActivity {
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                Toast.makeText(VisitorPortal.this, "Erreur lors de l'analyse des données JSON.", Toast.LENGTH_LONG).show();
-            }
-        },
+                Toast.makeText(VisitorPortal.this, "Un problème est survenu. Veuillez recommencer.", Toast.LENGTH_LONG).show();
+                }
+            },
                 error -> {
                     progressDialog.dismiss();
-                    Toast.makeText(VisitorPortal.this, "Échec de la connexion au serveur. Veuillez vérifier votre connexion à Internet et recommencer.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(VisitorPortal.this, "Échec de la connexion au serveur. Veuillez recommencer.", Toast.LENGTH_LONG).show();
                 }) {
             @Override
             protected Map<String, String> getParams() {
@@ -130,8 +122,13 @@ public class VisitorPortal extends AppCompatActivity {
             }
         };
 
-        progressDialog.show();
         requestQueue.add(stringRequest);
+        progressDialog.show();
+    }
+
+    private void createExpenseSheet() {
+        Intent intent = new Intent(VisitorPortal.this, CreateExpenseSheet.class);
+        startActivity(intent);
     }
 
     public void logout(View view) {

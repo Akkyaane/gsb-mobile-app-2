@@ -5,6 +5,11 @@
     <string name="email">E-mail</string>
     <string name="password">Mot de passe</string>
     <string name="loginButton">Connexion</string>
+    <string name="textViewRequestDate">Création</string>
+    <string name="textViewNightsNumber">Nuitées</string>
+    <string name="textViewTotalAmount">Montant</string>
+    <string name="textViewTreatmentStatus">Traitement</string>
+    <string name="createExpenseSheetButton">Créer une fiche</string>
     <string name="logoutButton">Déconnexion</string>
     <string name="createExpenseSheetTitle1">Créer une fiche de frais</string>
     <string name="createExpenseSheetInstructions">Attention : un budget est attitré pour chaque catégorie et correspond au montant maximum remboursé par l\'entreprise. Si dépassé, le reste est à votre charge. Veuillez laisser le champ vide, si aucune dépense n\'a été faite.</string>
@@ -12,9 +17,9 @@
     <string name="requestDate">Date de création</string>
     <string name="startDate">Date de départ</string>
     <string name="endDate">Date de retour</string>
-    <string name="visitorPortalTitle">Bienvenue</string>
     <string name="createExpenseSheetTitle3">Frais</string>
     <string name="createExpenseSheetTitle4">Transport</string>
+    <string name="prompt">Sélectionnez un mode de transport</string>
     <string name="KilometersNumber">Nombre total de kilomètres</string>
     <string name="transportMaximumAmount">Montant maximum : 2500 €</string>
     <string name="transportExpense">Montant total (€)</string>
