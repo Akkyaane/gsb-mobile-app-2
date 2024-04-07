@@ -68,9 +68,10 @@ public class MainActivity extends AppCompatActivity {
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 int status = jsonObject.getInt("status");
+
                 if (status == 200) {
                     Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(this, VisitorPortal.class);
+                    Intent intent = new Intent(this, SecondActivity.class);
                     intent.putExtra(EXTRA_MESSAGE, jsonObject.getString("data"));
                     startActivity(intent);
                 } else {

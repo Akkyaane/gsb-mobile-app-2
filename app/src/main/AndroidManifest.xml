@@ -24,9 +24,17 @@
         </activity>
         <activity
             android:exported="false"
+            android:label="Second Activity"
+            android:name=".SecondActivity"
+            android:parentActivityName=".SecondActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.gsb_mobile_app.MainActivity" />
+        </activity>
+        <activity
+            android:exported="false"
             android:label="Visitor Portal"
             android:name=".VisitorPortal"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".VisitorPortal">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.gsb_mobile_app.MainActivity" />
         </activity>

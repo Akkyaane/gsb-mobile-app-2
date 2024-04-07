@@ -1,73 +1,70 @@
 package com.example.gsb_mobile_app;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import androidx.fragment.app.Fragment;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import java.util.HashMap;
-import java.util.Map;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class VisitorPortal extends AppCompatActivity {
+import java.util.HashMap;
+import java.util.Map;
+
+public class VisitorPortal extends Fragment {
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    Button createExpenseSheet;
-    public static final String EXTRA_MESSAGE = "com.example.gsb_mobile_app.extra.MESSAGE";
+    TextView visitorPortalTitle;
+    private static final String TAG = "VisitorPortal";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_visitor_portal);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_visitor_portal, container, false);
+        String userId = null;
+        Bundle bundle = getArguments();
 
-        String id, firstName, lastName;
+        if (bundle != null) {
+            userId = bundle.getString("userId");
+            String kilometerCostsId = bundle.getString("kilometerCostsId");
+            String roleId = bundle.getString("roleId");
+            String firstName = bundle.getString("firstName");
+            String lastName = bundle.getString("lastName");
+            String email = bundle.getString("email");
+            String status = bundle.getString("status");
 
-        try {
-            JSONObject jsonObject = new JSONObject(message);
-            id = jsonObject.getString("user_id");
-            firstName = jsonObject.getString("first_name");
-            lastName = jsonObject.getString("last_name").toUpperCase();
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
+            User user = new User(userId, kilometerCostsId, roleId, firstName, lastName, email, status);
+            firstName = user.getFirstName();
+            String formattedData = "Bienvenue " + firstName + " ! ";
+
+            visitorPortalTitle = rootView.findViewById(R.id.visitorPortalTitle);
+            visitorPortalTitle.setText(formattedData);
+
+            progressDialog = new ProgressDialog(getActivity());
+            requestQueue = Volley.newRequestQueue(getActivity());
+
+            progressDialog.setMessage("Récupération des données en cours...");
+            progressDialog.setCancelable(false);
+
+            gettingExpenseSheetsRequest(userId);
+        } else {
+            Log.d(TAG, "Bundle is null.");
         }
 
-        String formattedData = "Bienvenue " + firstName + " " + lastName;
-        TextView welcome = findViewById(R.id.visitorPortalTitle);
-        welcome.setText(formattedData);
-
-        createExpenseSheet = findViewById(R.id.createExpenseSheetButton);
-        progressDialog = new ProgressDialog(this);
-        requestQueue = Volley.newRequestQueue(this);
-
-        progressDialog.setMessage("Récupération des données en cours...");
-        progressDialog.setCancelable(false);
-
-        gettingExpenseSheetsRequest(id);
-
-        createExpenseSheet.setOnClickListener(v -> createExpenseSheet());
+        return rootView;
     }
 
     private void gettingExpenseSheetsRequest(String user_id) {
@@ -75,21 +72,20 @@ public class VisitorPortal extends AppCompatActivity {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, gettingExpenseSheetsURL, response -> {
             progressDialog.dismiss();
-            LinearLayout expenseSheetsList = findViewById(R.id.expenseSheetsList);
-            LayoutInflater inflater = LayoutInflater.from(VisitorPortal.this);
+            LinearLayout expenseSheetsList = getView().findViewById(R.id.expenseSheetsList);
+            LayoutInflater inflater = LayoutInflater.from(getActivity());
 
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 int status = jsonObject.getInt("status");
+
                 if (status == 200) {
-                    Toast.makeText(VisitorPortal.this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                     JSONArray result = jsonObject.getJSONArray("data");
 
                     for (int i = 0; i < result.length(); i++) {
                         JSONObject data = result.getJSONObject(i);
-
                         View expenseSheet = inflater.inflate(R.layout.expense_sheet, expenseSheetsList, false);
-
                         TextView textViewRequestDate = expenseSheet.findViewById(R.id.textViewRequestDate);
                         TextView textViewNightsNumber = expenseSheet.findViewById(R.id.textViewNightsNumber);
                         TextView textViewTotalAmount = expenseSheet.findViewById(R.id.textViewTotalAmount);
@@ -103,16 +99,16 @@ public class VisitorPortal extends AppCompatActivity {
                         expenseSheetsList.addView(expenseSheet);
                     }
                 } else {
-                    Toast.makeText(VisitorPortal.this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                Toast.makeText(VisitorPortal.this, "Un problème est survenu. Veuillez recommencer.", Toast.LENGTH_LONG).show();
-                }
-            },
+                Toast.makeText(getActivity(), "Un problème est survenu. Veuillez recommencer.", Toast.LENGTH_LONG).show();
+            }
+        },
                 error -> {
                     progressDialog.dismiss();
-                    Toast.makeText(VisitorPortal.this, "Échec de la connexion au serveur. Veuillez recommencer.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Échec de la connexion au serveur. Veuillez recommencer.", Toast.LENGTH_LONG).show();
                 }) {
             @Override
             protected Map<String, String> getParams() {
@@ -126,12 +122,9 @@ public class VisitorPortal extends AppCompatActivity {
         progressDialog.show();
     }
 
-    private void createExpenseSheet() {
-        Intent intent = new Intent(VisitorPortal.this, CreateExpenseSheet.class);
-        startActivity(intent);
-    }
-
-    public void logout(View view) {
-        finish();
-    }
+    /*public void logout(View view) {
+        getActivity().finish();
+    }*/
 }
+
+
