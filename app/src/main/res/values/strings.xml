@@ -34,4 +34,9 @@
     <string name="otherMaximumAmount">Montant maximum : 200 €</string>
     <string name="otherExpense">Montant total (€)</string>
     <string name="message">Écrire un message...</string>
+    <string name="transportExpenseFile">Choisir un fichier</string>
+    <string name="accommodationExpenseFile">Choisir un fichier</string>
+    <string name="foodExpenseFile">Choisir un fichier</string>
+    <string name="otherExpenseFile">Choisir un fichier</string>
+    <string name="createExpenseSheetSendButton">Soumettre</string>
 </resources>

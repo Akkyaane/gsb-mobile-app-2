@@ -210,6 +210,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/transportMaximumAmount" />
 
+            <Button
+                android:id="@+id/transportExpenseFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#08cbff"
+                android:fontFamily="@font/quicksand"
+                android:text="@string/transportExpenseFile"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpense" />
+
             <TextView
                 android:id="@+id/createExpenseSheetTitle5"
                 android:layout_width="match_parent"
@@ -223,7 +239,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/transportExpense" />
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseFile" />
 
             <TextView
                 android:id="@+id/accommodationMaximumAmount"
@@ -272,6 +288,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nightsNumber" />
 
+            <Button
+                android:id="@+id/accommodationExpenseFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#08cbff"
+                android:fontFamily="@font/quicksand"
+                android:text="@string/accommodationExpenseFile"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpense" />
+
             <TextView
                 android:id="@+id/createExpenseSheetTitle6"
                 android:layout_width="match_parent"
@@ -285,7 +317,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accommodationExpense" />
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseFile" />
 
             <TextView
                 android:id="@+id/foodMaximumAmount"
@@ -318,6 +350,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/foodMaximumAmount" />
 
+            <Button
+                android:id="@+id/foodExpenseFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#08cbff"
+                android:fontFamily="@font/quicksand"
+                android:text="@string/foodExpenseFile"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpense" />
+
             <TextView
                 android:id="@+id/createExpenseSheetTitle7"
                 android:layout_width="match_parent"
@@ -331,7 +379,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/foodExpense" />
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseFile" />
 
             <TextView
                 android:id="@+id/otherMaximumAmount"
@@ -378,10 +426,43 @@
                 android:hint="@string/message"
                 android:inputType="textMultiLine"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/otherExpense" />
+
+            <Button
+                android:id="@+id/otherExpenseFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#08cbff"
+                android:fontFamily="@font/quicksand"
+                android:text="@string/otherExpenseFile"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/message" />
+
+            <Button
+                android:id="@+id/createExpenseSheetSendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#08cbff"
+                android:fontFamily="@font/quicksand"
+                android:text="@string/createExpenseSheetSendButton"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseFile" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

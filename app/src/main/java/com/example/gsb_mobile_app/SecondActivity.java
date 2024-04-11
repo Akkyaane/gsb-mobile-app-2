@@ -54,6 +54,7 @@ public class SecondActivity extends AppCompatActivity {
             bundle.putString("status", status);
 
             visitorPortalFragment.setArguments(bundle);
+            createExpenseSheetFragment.setArguments(bundle);
         } else {
             Log.d(TAG, "Message is null.");
         }

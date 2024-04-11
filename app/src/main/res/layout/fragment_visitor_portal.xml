@@ -9,9 +9,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="729dp"
         android:background="#FFFFFF"
-        tools:context=".VisitorPortal">
+        tools:context=".VisitorPortal"
+        tools:layout_editor_absoluteY="1dp">
 
         <ImageView
             android:id="@+id/logo"
@@ -107,32 +108,6 @@
             </LinearLayout>
 
         </ScrollView>
-
-        <!-- <Button
-        android:id="@+id/createExpenseSheetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#08cbff"
-        android:fontFamily="@font/quicksand"
-        android:onClick="logout"
-        android:text="@string/createExpenseSheetButton"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="528dp" /> -->
-
-        <!-- <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#08cbff"
-        android:fontFamily="@font/quicksand"
-        android:onClick="logout"
-        android:text="@string/logoutButton"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="253dp"
-        tools:layout_editor_absoluteY="500dp" /> -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
