@@ -9,7 +9,6 @@
     <string name="textViewNightsNumber">Nuitées</string>
     <string name="textViewTotalAmount">Montant</string>
     <string name="textViewTreatmentStatus">Traitement</string>
-    <string name="createExpenseSheetButton">Créer une fiche</string>
     <string name="logoutButton">Déconnexion</string>
     <string name="createExpenseSheetTitle1">Créer une fiche de frais</string>
     <string name="createExpenseSheetInstructions">Attention : un budget est attitré pour chaque catégorie et correspond au montant maximum remboursé par l\'entreprise. Si dépassé, le reste est à votre charge. Veuillez laisser le champ vide, si aucune dépense n\'a été faite.</string>
@@ -20,7 +19,7 @@
     <string name="createExpenseSheetTitle3">Frais</string>
     <string name="createExpenseSheetTitle4">Transport</string>
     <string name="prompt">Sélectionnez un mode de transport</string>
-    <string name="KilometersNumber">Nombre total de kilomètres</string>
+    <string name="kilometersNumber">Nombre total de kilomètres</string>
     <string name="transportMaximumAmount">Montant maximum : 2500 €</string>
     <string name="transportExpense">Montant total (€)</string>
     <string name="createExpenseSheetTitle5">Hébergement</string>
@@ -38,5 +37,5 @@
     <string name="accommodationExpenseFile">Choisir un fichier</string>
     <string name="foodExpenseFile">Choisir un fichier</string>
     <string name="otherExpenseFile">Choisir un fichier</string>
-    <string name="createExpenseSheetSendButton">Soumettre</string>
+    <string name="createExpenseSheetButton">Soumettre</string>
 </resources>

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.content.Intent;
 import android.net.Uri;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -32,66 +33,47 @@ import java.util.Map;
 
 public class CreateExpenseSheet extends Fragment {
     private static final String TAG = "CreateExpenseSheet";
-    String transportCategory = null, transportExpenseFilePath, accommodationExpenseFilePath, foodExpenseFilePath, otherExpenseFilePath;
-    Button createExpenseSheetSendButton;
-    ProgressDialog progressDialog;
-    RequestQueue requestQueue;
-    private static final int PICK_FILE_REQUEST_CODE = 123;
+    private final int PICK_FILE_REQUEST_CODE = 123;
+    private String transportCategory, transportExpenseFilePath, accommodationExpenseFilePath, foodExpenseFilePath, otherExpenseFilePath;
     private String lastClickedButtonId;
+    private ProgressDialog progressDialog;
+    private RequestQueue requestQueue;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_create_expense_sheet, container, false);
+        View view = inflater.inflate(R.layout.fragment_create_expense_sheet, container, false);
 
-        createExpenseSheetSendButton = rootView.findViewById(R.id.createExpenseSheetSendButton);
+        EditText requestDate = view.findViewById(R.id.requestDate);
+        EditText startDate = view.findViewById(R.id.startDate);
+        EditText endDate = view.findViewById(R.id.endDate);
+        EditText kilometersNumber = view.findViewById(R.id.kilometersNumber);
+        EditText transportExpense = view.findViewById(R.id.transportExpense);
+        EditText nightsNumber = view.findViewById(R.id.nightsNumber);
+        EditText accommodationExpense = view.findViewById(R.id.accommodationExpense);
+        EditText foodExpense = view.findViewById(R.id.foodExpense);
+        EditText otherExpense = view.findViewById(R.id.otherExpense);
+        EditText message = view.findViewById(R.id.message);
+        Button createExpenseSheetButton = view.findViewById(R.id.createExpenseSheetButton);
 
-        Bundle bundle = getArguments();
-        String userId, kilometerCostsId;
+        Button transportExpenseFile = view.findViewById(R.id.transportExpenseFile);
+        Button accommodationExpenseFile = view.findViewById(R.id.accommodationExpenseFile);
+        Button foodExpenseFile = view.findViewById(R.id.foodExpenseFile);
+        Button otherExpenseFile = view.findViewById(R.id.otherExpenseFile);
 
-        if (bundle != null) {
-            userId = bundle.getString("userId");
-            kilometerCostsId = bundle.getString("kilometerCostsId");
-            String roleId = bundle.getString("roleId");
-            String firstName = bundle.getString("firstName");
-            String lastName = bundle.getString("lastName");
-            String email = bundle.getString("email");
-            String status = bundle.getString("status");
-        } else {
-            userId = null;
-            kilometerCostsId = null;
-            Log.d(TAG, "Bundle is null.");
-        }
+        Spinner createExpenseSheetSpinner = view.findViewById(R.id.createExpenseSheetSpinner);
+        createExpenseSheetSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedTransport = createExpenseSheetSpinner.getSelectedItem().toString();
+                updateFields(selectedTransport, transportExpense, kilometersNumber);
+            }
 
-        EditText requestDate = rootView.findViewById(R.id.requestDate);
-        EditText startDate = rootView.findViewById(R.id.startDate);
-        EditText endDate = rootView.findViewById(R.id.endDate);
-        EditText KilometersNumber = rootView.findViewById(R.id.KilometersNumber);
-        EditText transportExpense = rootView.findViewById(R.id.transportExpense);
-        EditText nightsNumber = rootView.findViewById(R.id.nightsNumber);
-        EditText accommodationExpense = rootView.findViewById(R.id.accommodationExpense);
-        EditText foodExpense = rootView.findViewById(R.id.foodExpense);
-        EditText otherExpense = rootView.findViewById(R.id.otherExpense);
-        EditText message = rootView.findViewById(R.id.message);
-
-        Spinner createExpenseSheetSpinner = rootView.findViewById(R.id.createExpenseSheetSpinner);
-        String selectedTransport = createExpenseSheetSpinner.getSelectedItem().toString();
-
-        if (selectedTransport.equals("Avion")) {
-            transportCategory = "1";
-        } else if (selectedTransport.equals("Train")) {
-            transportCategory = "2";
-        } else if (selectedTransport.equals("Bus/Car/Taxi")) {
-            transportCategory = "3";
-        } else {
-            transportCategory = "4";
-        }
-
-        Button transportExpenseFile = rootView.findViewById(R.id.transportExpenseFile);
-        Button accommodationExpenseFile = rootView.findViewById(R.id.accommodationExpenseFile);
-        Button foodExpenseFile = rootView.findViewById(R.id.foodExpenseFile);
-        Button otherExpenseFile = rootView.findViewById(R.id.otherExpenseFile);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
         transportExpenseFile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,14 +115,19 @@ public class CreateExpenseSheet extends Fragment {
             }
         });
 
+        Bundle bundle = getArguments();
+
+        String userId = bundle.getString("userId");
+        String kilometerCostsId = bundle.getString("kilometerCostsId");
+
         progressDialog = new ProgressDialog(getContext());
         requestQueue = Volley.newRequestQueue(getActivity());
 
-        createExpenseSheetSendButton.setOnClickListener(v -> {
+        createExpenseSheetButton.setOnClickListener(v -> {
             String requestDateVar = requestDate.getText().toString();
             String startDateVar = startDate.getText().toString();
             String endDateVar = endDate.getText().toString();
-            String KilometersNumberVar = KilometersNumber.getText().toString();
+            String kilometersNumberVar = kilometersNumber.getText().toString();
             String transportExpenseVar = transportExpense.getText().toString();
             String nightsNumberVar = nightsNumber.getText().toString();
             String accommodationExpenseVar = accommodationExpense.getText().toString();
@@ -154,66 +141,69 @@ public class CreateExpenseSheet extends Fragment {
                 Toast.makeText(getContext(), "Le champ 'Date de départ' est vide", Toast.LENGTH_SHORT).show();
             } else if (endDateVar.isEmpty()) {
                 Toast.makeText(getContext(), "Le champ 'Date de retour' est vide", Toast.LENGTH_SHORT).show();
-            } else {
-                createExpenseSheetRequest(kilometerCostsId, userId, requestDateVar, startDateVar, endDateVar, transportCategory, KilometersNumberVar, transportExpenseVar, transportExpenseFilePath, nightsNumberVar, accommodationExpenseVar, accommodationExpenseFilePath, foodExpenseVar, foodExpenseFilePath, otherExpenseVar, messageVar, otherExpenseFilePath);
+            } else if (requestDateVar.isEmpty()) {
+                requestDateVar =a;
+            }
+
+                createExpenseSheetRequest(kilometerCostsId, userId, requestDateVar, startDateVar, endDateVar, transportCategory, kilometersNumberVar, transportExpenseVar, transportExpenseFilePath, nightsNumberVar, accommodationExpenseVar, accommodationExpenseFilePath, foodExpenseVar, foodExpenseFilePath, otherExpenseVar, messageVar, otherExpenseFilePath);
             }
         });
 
-        return rootView;
+        return view;
     }
+
+    private void updateFields(String selectedTransport, EditText transportExpense, EditText kilometersNumber) {
+        switch (selectedTransport) {
+            case "Avion":
+            case "Train":
+            case "Bus/Car/Taxi":
+                transportCategory = "1";
+                transportExpense.setEnabled(true);
+                kilometersNumber.setEnabled(false);
+                break;
+            case "Voiture":
+                transportCategory = "4";
+                transportExpense.setEnabled(false);
+                kilometersNumber.setEnabled(true);
+                break;
+            default:
+                transportCategory = "null";
+                transportExpense.setEnabled(true);
+                kilometersNumber.setEnabled(true);
+                break;
+        }
+    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (data != null) {
-            Uri fileUri = data.getData();
-            if (fileUri != null) {
-                String filePath = fileUri.getPath();
-                if (filePath != null) {
-                    switch (lastClickedButtonId) {
-                        case "transportExpenseFile":
-                            transportExpenseFilePath = filePath;
-                            break;
-                        case "accommodationExpenseFile":
-                            accommodationExpenseFilePath = filePath;
-                            break;
-                        case "foodExpenseFile":
-                            foodExpenseFilePath = filePath;
-                            break;
-                        case "otherExpenseFile":
-                            otherExpenseFilePath = filePath;
-                            break;
-                    }
-                    Toast.makeText(getContext(), "Fichier sélectionné : " + filePath, Toast.LENGTH_LONG).show();
-                } else {
-                    Log.d(TAG, "URL NULL");
-                }
+        if (requestCode == PICK_FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+            Uri uri = data.getData();
+            switch (lastClickedButtonId) {
+                case "transportExpenseFile":
+                    transportExpenseFilePath = uri.getPath();
+                    break;
+                case "accommodationExpenseFile":
+                    accommodationExpenseFilePath = uri.getPath();
+                    break;
+                case "foodExpenseFile":
+                    foodExpenseFilePath = uri.getPath();
+                    break;
+                case "otherExpenseFile":
+                    otherExpenseFilePath = uri.getPath();
+                    break;
             }
+            Toast.makeText(getContext(), "Chemin du fichier sélectionné : " + uri.getPath(), Toast.LENGTH_SHORT).show();
         }
-
     }
 
-    private String getRealPathFromURI(Uri uri) {
-        String[] projection = {MediaStore.Images.Media.DATA};
-        Cursor cursor = getActivity().getContentResolver().query(uri, projection, null, null, null);
-        if (cursor != null) {
-            int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            String realPath = cursor.getString(columnIndex);
-            cursor.close();
-            return realPath;
-        }
-        return uri.getPath();
-    }
-
-    private void createExpenseSheetRequest(String kilometerCostsId, String userId, String requestDateVar, String startDateVar, String endDateVar, String transportCategory, String KilometersNumberVar, String transportExpenseVar, String transportExpenseFilePath, String nightsNumberVar, String accommodationExpenseVar, String accommodationExpenseFilePath, String foodExpenseVar, String foodExpenseFilePath, String otherExpenseVar, String messageVar, String otherExpenseFilePath) {
+    private void createExpenseSheetRequest(String kilometerCostsId, String userId, String requestDateVar, String startDateVar, String endDateVar, String transportCategory, String kilometersNumberVar, String transportExpenseVar, String transportExpenseFilePath, String nightsNumberVar, String accommodationExpenseVar, String accommodationExpenseFilePath, String foodExpenseVar, String foodExpenseFilePath, String otherExpenseVar, String messageVar, String otherExpenseFilePath) {
         String createExpenseSheetURL = "https://jeremiebayon.fr/api/controllers/functionalities/ExpenseSheet/CreateExpenseSheet.php";
 
-        progressDialog.setMessage("En cours de soumission...");
+        progressDialog.setMessage("Envoi en cours...");
         progressDialog.setCancelable(false);
-        progressDialog.show();
-
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, createExpenseSheetURL, response -> {
             progressDialog.dismiss();
@@ -224,14 +214,11 @@ public class CreateExpenseSheet extends Fragment {
 
                 if (status == 200) {
                     Toast.makeText(getActivity(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-                    Log.d(TAG, "Response: " + response);
                 } else {
                     Toast.makeText(getActivity(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-                    Log.d(TAG, "Response: " + response);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                Log.d(TAG, "Response: " + response);
                 Toast.makeText(getActivity(), "Un problème est survenu. Veuillez recommencer.", Toast.LENGTH_LONG).show();
             }
         },
@@ -247,49 +234,26 @@ public class CreateExpenseSheet extends Fragment {
                 params.put("request_date", requestDateVar);
                 params.put("start_date", startDateVar);
                 params.put("end_date", endDateVar);
+                params.put("transport_category", transportCategory);
+                params.put("transport_expense", transportExpenseVar);
+                params.put("kilometers_number", kilometersNumberVar);
+                params.put("accommodation_expense", accommodationExpenseVar);
+                params.put("nights_number", nightsNumberVar);
+                params.put("food_expense", foodExpenseVar);
+                params.put("other_expense", otherExpenseVar);
+                params.put("message", messageVar);
+                params.put("transport_expense_file", transportExpenseFilePath);
+                params.put("accommodation_expense_file", accommodationExpenseFilePath);
+                params.put("food_expense_file", foodExpenseFilePath);
+                params.put("other_expense_file", otherExpenseFilePath);
 
-                if (transportCategory != null) {
-                    params.put("transport_category", transportCategory);
-                }
-                if (transportExpenseVar != null) {
-                    params.put("transport_expense", transportExpenseVar);
-                }
-                if (KilometersNumberVar != null) {
-                    params.put("kilometers_number", KilometersNumberVar);
-                }
-                if (accommodationExpenseVar != null) {
-                    params.put("accommodation_expense", accommodationExpenseVar);
-                }
-                if (nightsNumberVar != null) {
-                    params.put("nights_number", nightsNumberVar);
-                }
-                if (foodExpenseVar != null) {
-                    params.put("food_expense", foodExpenseVar);
-                }
-                if (otherExpenseVar != null) {
-                    params.put("other_expense", otherExpenseVar);
-                }
-                if (messageVar != null) {
-                    params.put("message", messageVar);
-                }
-                if (transportExpenseFilePath != null) {
-                    params.put("transport_expense_file", transportExpenseFilePath);
-                }
-                if (accommodationExpenseFilePath != null) {
-                    params.put("accommodation_expense_file", accommodationExpenseFilePath);
-                }
-                if (foodExpenseFilePath != null) {
-                    params.put("food_expense_file", foodExpenseFilePath);
-                }
-                if (otherExpenseFilePath != null) {
-                    params.put("other_expense_file", otherExpenseFilePath);
-                }
-
+                Log.d(TAG, params.toString());
                 return params;
             }
         };
 
         requestQueue.add(stringRequest);
+        progressDialog.show();
     }
 }
 
