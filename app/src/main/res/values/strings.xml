@@ -1,41 +1,43 @@
 <resources>
     <string name="app_name">gsb-mobile-app</string>
-    <string name="loginInstructions">Veuillez vous connecter pour accéder à votre compte.</string>
     <string name="loginTitle">Bienvenue sur l\'intranet GSB</string>
+    <string name="loginInstructions">Veuillez vous connecter pour accéder à votre compte.</string>
     <string name="email">E-mail</string>
     <string name="password">Mot de passe</string>
     <string name="loginButton">Connexion</string>
-    <string name="textViewRequestDate">Création</string>
-    <string name="textViewNightsNumber">Nuitées</string>
-    <string name="textViewTotalAmount">Montant</string>
-    <string name="textViewTreatmentStatus">Traitement</string>
-    <string name="logoutButton">Déconnexion</string>
+
+    <string name="createExpenseSheetItem">Créer une fiche</string>
+    <string name="homeItem">Accueil</string>
+    <string name="accountItem">Compte</string>
+
+    <string name="requestDateTextView">Création</string>
+    <string name="nightsNumberTextView">Nuitées</string>
+    <string name="totalAmountTextView">Montant</string>
+    <string name="treatmentStatusTextView">Traitement</string>
+
     <string name="createExpenseSheetTitle1">Créer une fiche de frais</string>
     <string name="createExpenseSheetInstructions">Attention : un budget est attitré pour chaque catégorie et correspond au montant maximum remboursé par l\'entreprise. Si dépassé, le reste est à votre charge. Veuillez laisser le champ vide, si aucune dépense n\'a été faite.</string>
     <string name="createExpenseSheetTitle2">Informations générales</string>
-    <string name="requestDate">Date de création</string>
-    <string name="startDate">Date de départ</string>
-    <string name="endDate">Date de retour</string>
+    <string name="requestDateEditText">Date de création</string>
+    <string name="startDateEditText">Date de départ</string>
+    <string name="endDateEditText">Date de retour</string>
     <string name="createExpenseSheetTitle3">Frais</string>
     <string name="createExpenseSheetTitle4">Transport</string>
     <string name="prompt">Sélectionnez un mode de transport</string>
-    <string name="kilometersNumber">Nombre total de kilomètres</string>
-    <string name="transportMaximumAmount">Montant maximum : 2500 €</string>
-    <string name="transportExpense">Montant total (€)</string>
+    <string name="kilometersNumberEditText">Nombre total de kilomètres</string>
+    <string name="transportExpenseMaximumAmount">Montant maximum : 2500 €</string>
+    <string name="transportExpenseEditText">Montant total (€)</string>
+    <string name="expenseFileTextView">Sélectionnez un justificatif : </string>
     <string name="createExpenseSheetTitle5">Hébergement</string>
-    <string name="accommodationMaximumAmount">Montant maximum : 250 €</string>
-    <string name="nightsNumber">Nombre total de nuitées</string>
-    <string name="accommodationExpense">Montant total (€)</string>
+    <string name="accommodationExpenseMaximumAmount">Montant maximum : 250 €</string>
+    <string name="nightsNumberEditText">Nombre total de nuitées</string>
+    <string name="accommodationExpenseEditText">Montant total (€)</string>
     <string name="createExpenseSheetTitle6">Alimentation</string>
-    <string name="foodMaximumAmount">Montant maximum : 300 €</string>
-    <string name="foodExpense">Montant total (€)</string>
+    <string name="foodExpenseMaximumAmount">Montant maximum : 300 €</string>
+    <string name="foodExpenseEditText">Montant total (€)</string>
     <string name="createExpenseSheetTitle7">Autres</string>
-    <string name="otherMaximumAmount">Montant maximum : 200 €</string>
-    <string name="otherExpense">Montant total (€)</string>
-    <string name="message">Écrire un message...</string>
-    <string name="transportExpenseFile">Choisir un fichier</string>
-    <string name="accommodationExpenseFile">Choisir un fichier</string>
-    <string name="foodExpenseFile">Choisir un fichier</string>
-    <string name="otherExpenseFile">Choisir un fichier</string>
+    <string name="otherExpenseMaximumAmount">Montant maximum : 200 €</string>
+    <string name="otherExpenseEditText">Montant total (€)</string>
+    <string name="messageEditText">Écrire un message...</string>
     <string name="createExpenseSheetButton">Soumettre</string>
 </resources>

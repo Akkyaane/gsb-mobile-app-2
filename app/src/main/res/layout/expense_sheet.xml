@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:background="@drawable/borders"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="horizontal"
-    android:paddingTop="15dp"
     android:paddingBottom="15dp"
-    android:background="@drawable/border">
+    android:paddingTop="15dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
         android:fontFamily="@font/quicksand"
-        android:id="@+id/textViewRequestDate"
+        android:id="@+id/requestDateTextView"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -18,17 +19,7 @@
 
     <TextView
         android:fontFamily="@font/quicksand"
-        android:id="@+id/textViewNightsNumber"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:fontFamily="@font/quicksand"
-        android:id="@+id/textViewTotalAmount"
+        android:id="@+id/nightsNumberTextView"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -37,7 +28,16 @@
 
     <TextView
         android:fontFamily="@font/quicksand"
-        android:id="@+id/textViewTreatmentStatus"
+        android:id="@+id/totalAmountTextView"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:fontFamily="@font/quicksand"
+        android:id="@+id/treatmentStatusTextView"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_width="match_parent"

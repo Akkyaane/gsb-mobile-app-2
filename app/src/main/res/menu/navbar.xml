@@ -2,15 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="Créer une fiche"
         android:icon="@drawable/plus"
-        android:id="@+id/createExpenseSheet" />
+        android:id="@+id/createExpenseSheet"
+        android:title="@string/createExpenseSheetItem" />
+
     <item
-        android:title="Accueil"
         android:icon="@drawable/home"
-        android:id="@+id/home"/>
+        android:id="@+id/home"
+        android:title="@string/homeItem" />
+
     <item
-        android:title="Compte"
         android:icon="@drawable/account"
-        android:id="@+id/account"/>
+        android:id="@+id/account"
+        android:title="@string/accountItem" />
+
 </menu>

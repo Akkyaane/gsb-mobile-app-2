@@ -3,14 +3,15 @@ package com.example.gsb_mobile_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,17 +19,23 @@ public class SecondActivity extends AppCompatActivity {
     private static final String TAG = "SecondActivity";
     private VisitorPortal visitorPortalFragment;
     private CreateExpenseSheet createExpenseSheetFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_second);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         String userId, kilometerCostsId, roleId, firstName, lastName, email, status;
         visitorPortalFragment = new VisitorPortal();
         createExpenseSheetFragment = new CreateExpenseSheet();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navbar);
 
         if (message != null) {
             try {
@@ -59,8 +66,6 @@ public class SecondActivity extends AppCompatActivity {
             Log.d(TAG, "Message is null.");
         }
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.navbar);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
@@ -72,12 +77,9 @@ public class SecondActivity extends AppCompatActivity {
 
             return true;
         });
-
         loadFragment(visitorPortalFragment);
-
         bottomNavigationView.getMenu().findItem(R.id.home).setChecked(true);
     }
-
     private void loadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

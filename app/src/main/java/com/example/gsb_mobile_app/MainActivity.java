@@ -3,6 +3,7 @@ package com.example.gsb_mobile_app;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,12 +22,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     EditText email, password;
     Button login;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     public static final String EXTRA_MESSAGE = "com.example.gsb_mobile_app.extra.MESSAGE";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         login = findViewById(R.id.loginButton);
         progressDialog = new ProgressDialog(this);
         requestQueue = Volley.newRequestQueue(this);
 
-        progressDialog.setMessage("Connexion en cours...");
+        progressDialog.setMessage("Connexion...");
         progressDialog.setCancelable(false);
 
         login.setOnClickListener(v -> {
@@ -51,15 +53,14 @@ public class MainActivity extends AppCompatActivity {
             String passwordVar = password.getText().toString();
 
             if (emailVar.isEmpty()) {
-                Toast.makeText(getApplicationContext(), "Le champ 'E-mail' est vide.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Le champ E-mail est vide.", Toast.LENGTH_SHORT).show();
             } else if (passwordVar.isEmpty()) {
-                Toast.makeText(getApplicationContext(), "Le champ 'Mot de passe' est vide.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Le champ Mot de passe est vide.", Toast.LENGTH_SHORT).show();
             } else {
                 loginRequest(emailVar, passwordVar);
             }
         });
     }
-
     private void loginRequest(String emailVar, String passwordVar) {
         String loginURL = "https://jeremiebayon.fr/api/controllers/authentication/login.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, loginURL, response -> {
@@ -70,21 +71,21 @@ public class MainActivity extends AppCompatActivity {
                 int status = jsonObject.getInt("status");
 
                 if (status == 200) {
-                    Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(this, SecondActivity.class);
                     intent.putExtra(EXTRA_MESSAGE, jsonObject.getString("data"));
                     startActivity(intent);
                 } else {
-                    Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                 }
             } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(MainActivity.this, "Un problème est survenu. Veuillez recommencer.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Un problème est survenu.", Toast.LENGTH_LONG).show();
                 }
             },
                 error -> {
                     progressDialog.dismiss();
-                    Toast.makeText(MainActivity.this, "Échec de la connexion au serveur. Veuillez recommencer.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Échec de la connexion au serveur.", Toast.LENGTH_LONG).show();
                 }) {
             @Override
             protected Map<String, String> getParams() {

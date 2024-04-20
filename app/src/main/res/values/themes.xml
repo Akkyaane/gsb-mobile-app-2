@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.Gsbmobileapp" parent="Base.Theme.Gsbmobileapp" />
+
+    <style name="Theme.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/blue</item>
+    </style>
 </resources>
