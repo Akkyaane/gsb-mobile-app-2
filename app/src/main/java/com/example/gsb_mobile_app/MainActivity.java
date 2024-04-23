@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
+        email = findViewById(R.id.emailEditText);
+        password = findViewById(R.id.passwordEditText);
         login = findViewById(R.id.loginButton);
         progressDialog = new ProgressDialog(this);
         requestQueue = Volley.newRequestQueue(this);

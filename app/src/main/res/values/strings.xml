@@ -2,8 +2,8 @@
     <string name="app_name">gsb-mobile-app</string>
     <string name="loginTitle">Bienvenue sur l\'intranet GSB</string>
     <string name="loginInstructions">Veuillez vous connecter pour accéder à votre compte.</string>
-    <string name="email">E-mail</string>
-    <string name="password">Mot de passe</string>
+    <string name="emailEditText">E-mail</string>
+    <string name="passwordEditText">Mot de passe</string>
     <string name="loginButton">Connexion</string>
 
     <string name="createExpenseSheetItem">Créer une fiche</string>
@@ -40,4 +40,10 @@
     <string name="otherExpenseEditText">Montant total (€)</string>
     <string name="messageEditText">Écrire un message...</string>
     <string name="createExpenseSheetButton">Soumettre</string>
+
+    <string name="manageAccountTitle">Gérer mes informations</string>
+    <string name="firstNameEditText">Prénom</string>
+    <string name="lastNameEditText">Nom</string>
+    <string name="manageAccountButton1">Modifier</string>
+    <string name="manageAccountButton2">Soumettre</string>
 </resources>

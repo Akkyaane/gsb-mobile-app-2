@@ -19,6 +19,7 @@ public class SecondActivity extends AppCompatActivity {
     private static final String TAG = "SecondActivity";
     private VisitorPortal visitorPortalFragment;
     private CreateExpenseSheet createExpenseSheetFragment;
+    private ManageAccount manageAccountFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,7 @@ public class SecondActivity extends AppCompatActivity {
         String userId, kilometerCostsId, roleId, firstName, lastName, email, status;
         visitorPortalFragment = new VisitorPortal();
         createExpenseSheetFragment = new CreateExpenseSheet();
+        manageAccountFragment = new ManageAccount();
         BottomNavigationView bottomNavigationView = findViewById(R.id.navbar);
 
         if (message != null) {
@@ -62,6 +64,7 @@ public class SecondActivity extends AppCompatActivity {
 
             visitorPortalFragment.setArguments(bundle);
             createExpenseSheetFragment.setArguments(bundle);
+            manageAccountFragment.setArguments(bundle);
         } else {
             Log.d(TAG, "Message is null.");
         }
@@ -73,6 +76,8 @@ public class SecondActivity extends AppCompatActivity {
                 loadFragment(visitorPortalFragment);
             } else if (itemId == R.id.createExpenseSheet) {
                 loadFragment(createExpenseSheetFragment);
+            } else if (itemId == R.id.account) {
+                loadFragment(manageAccountFragment);
             }
 
             return true;
