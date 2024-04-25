@@ -1,6 +1,538 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:background="#FFFFFF"
+        android:id="@+id/main"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:background="#FFFFFF"
+                android:id="@+id/logo"
+                android:layout_height="100dp"
+                android:layout_width="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/createExpenseSheetTitle1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="match_parent"
+                android:text="@string/manageExpenseSheetTitle"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/createExpenseSheetInstructions"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/createExpenseSheetInstructions"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle1" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/createExpenseSheetTitle2"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/createExpenseSheetTitle2"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetInstructions" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/requestDateEditText"
+                android:id="@+id/requestDateEditText"
+                android:inputType="date"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle2" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/startDateEditText"
+                android:id="@+id/startDateEditText"
+                android:inputType="date"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/requestDateEditText" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/endDateEditText"
+                android:id="@+id/endDateEditText"
+                android:inputType="date"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/startDateEditText" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/createExpenseSheetTitle3"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/createExpenseSheetTitle3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/endDateEditText" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/createExpenseSheetTitle4"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/createExpenseSheetTitle4"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle3" />
+
+            <Spinner
+                android:drawSelectorOnTop="true"
+                android:entries="@array/spinnerItems"
+                android:id="@+id/createExpenseSheetSpinner"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:prompt="@string/prompt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle4" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/kilometersNumberEditText"
+                android:id="@+id/kilometersNumberEditText"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetSpinner" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/transportExpenseMaximumAmount"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/transportExpenseMaximumAmount"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kilometersNumberEditText" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/transportExpenseEditText"
+                android:id="@+id/transportExpenseEditText"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseMaximumAmount" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/expenseFileTextView1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/expenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseEditText" />
+
+            <ImageView
+                android:id="@+id/transportExpenseFileImageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/expenseFileTextView1"  />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/createExpenseSheetTitle5"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/createExpenseSheetTitle5"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseFileImageView" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/accommodationExpenseMaximumAmount"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/accommodationExpenseMaximumAmount"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle5" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/nightsNumberEditText"
+                android:id="@+id/nightsNumberEditText"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseMaximumAmount" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/accommodationExpenseEditText"
+                android:id="@+id/accommodationExpenseEditText"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nightsNumberEditText" />
+
+            <TextView
+                android:id="@+id/expenseFileTextView2"
+                android:fontFamily="@font/quicksand"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/expenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseEditText" />
+
+            <ImageView
+                android:id="@+id/accommodationExpenseFileImageView"
+                android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="50dp"
+                android:src="@drawable/image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/expenseFileTextView2"  />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/createExpenseSheetTitle6"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/createExpenseSheetTitle6"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseFileImageView" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/foodExpenseMaximumAmount"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/foodExpenseMaximumAmount"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle6" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/foodExpenseEditText"
+                android:id="@+id/foodExpenseEditText"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseMaximumAmount" />
+
+            <TextView
+                android:id="@+id/expenseFileTextView3"
+                android:fontFamily="@font/quicksand"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/expenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseEditText" />
+
+            <ImageView
+                android:id="@+id/foodExpenseFileImageView"
+                android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="50dp"
+                android:src="@drawable/image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/expenseFileTextView3"  />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/createExpenseSheetTitle7"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/createExpenseSheetTitle7"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseFileImageView" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/otherExpenseMaximumAmount"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/otherExpenseMaximumAmount"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle7" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/otherExpenseEditText"
+                android:id="@+id/otherExpenseEditText"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseMaximumAmount" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:gravity="start|top"
+                android:hint="@string/messageEditText"
+                android:id="@+id/messageEditText"
+                android:inputType="textMultiLine"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseEditText" />
+
+            <TextView
+                android:id="@+id/expenseFileTextView4"
+                android:fontFamily="@font/quicksand"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/expenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/messageEditText" />
+
+            <ImageView
+                android:id="@+id/otherExpenseFileImageView"
+                android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="50dp"
+                android:src="@drawable/image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/expenseFileTextView4"  />
+
+            <Button
+                android:backgroundTint="#08cbff"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/manageExpenseSheetButton1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:text="@string/manageExpenseSheetButton1"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseFileImageView" />
+
+            <Button
+                android:backgroundTint="#08cbff"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/manageExpenseSheetButton2"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:text="@string/manageExpenseSheetButton2"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/manageExpenseSheetButton1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</FrameLayout>

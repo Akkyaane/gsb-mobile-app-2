@@ -46,4 +46,7 @@
     <string name="lastNameEditText">Nom</string>
     <string name="manageAccountButton1">Modifier</string>
     <string name="manageAccountButton2">Soumettre</string>
+    <string name="manageExpenseSheetTitle">Gérer la fiche de frais n°</string>
+    <string name="manageExpenseSheetButton1">Modifier</string>
+    <string name="manageExpenseSheetButton2">Supprimer</string>
 </resources>
