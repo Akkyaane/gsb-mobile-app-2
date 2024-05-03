@@ -3,7 +3,6 @@ package com.example.gsb_mobile_app;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -22,11 +21,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
-    EditText email, password;
-    Button login;
-    ProgressDialog progressDialog;
-    RequestQueue requestQueue;
+    private EditText email, password;
+    private ProgressDialog progressDialog;
+    private RequestQueue requestQueue;
     public static final String EXTRA_MESSAGE = "com.example.gsb_mobile_app.extra.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         email = findViewById(R.id.emailEditText);
         password = findViewById(R.id.passwordEditText);
-        login = findViewById(R.id.loginButton);
+        Button login = findViewById(R.id.loginButton);
         progressDialog = new ProgressDialog(this);
         requestQueue = Volley.newRequestQueue(this);
 
@@ -70,13 +67,11 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(response);
                 int status = jsonObject.getInt("status");
 
+                Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                 if (status == 200) {
-                    Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(this, SecondActivity.class);
                     intent.putExtra(EXTRA_MESSAGE, jsonObject.getString("data"));
                     startActivity(intent);
-                } else {
-                    Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                 }
             } catch (JSONException e) {
                     e.printStackTrace();

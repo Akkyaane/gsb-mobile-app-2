@@ -60,41 +60,41 @@
 
                     <TextView
                         android:fontFamily="@font/quicksand"
-                        android:id="@+id/requestDateTextView"
+                        android:id="@+id/requestDateLinearLayoutTextView"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:text="@string/requestDateTextView"
+                        android:text="@string/requestDateLinearLayoutTextView"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:fontFamily="@font/quicksand"
-                        android:id="@+id/nightsNumberTextView"
+                        android:id="@+id/nightsNumberLinearLayoutTextView"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:text="@string/nightsNumberTextView"
+                        android:text="@string/nightsNumberLinearLayoutTextView"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:fontFamily="@font/quicksand"
-                        android:id="@+id/totalAmountTextView"
+                        android:id="@+id/totalAmountLinearLayoutTextView"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:text="@string/totalAmountTextView"
+                        android:text="@string/totalAmountLinearLayoutTextView"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:fontFamily="@font/quicksand"
-                        android:id="@+id/treatmentStatusTextView"
+                        android:id="@+id/treatmentStatusLinearLayoutTextView"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:text="@string/treatmentStatusTextView"
+                        android:text="@string/treatmentStatusLinearLayoutTextView"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 

@@ -31,12 +31,12 @@
 
             <TextView
                 android:fontFamily="@font/quicksand"
-                android:id="@+id/createExpenseSheetTitle1"
+                android:id="@+id/manageExpenseSheetTitle1"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_width="match_parent"
-                android:text="@string/manageExpenseSheetTitle"
+                android:text="@string/manageExpenseSheetTitle1"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -52,10 +52,12 @@
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:text="@string/createExpenseSheetInstructions"
+                android:textColor="@color/red"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle1" />
+                app:layout_constraintTop_toBottomOf="@+id/manageExpenseSheetTitle1" />
 
             <TextView
                 android:fontFamily="@font/quicksand"
@@ -72,6 +74,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetInstructions" />
 
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/requestDateTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/requestDateTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle2" />
+
             <EditText
                 android:ems="10"
                 android:fontFamily="@font/quicksand"
@@ -86,7 +103,22 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle2" />
+                app:layout_constraintTop_toBottomOf="@+id/requestDateTextView" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/startDateTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/startDateTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/requestDateEditText" />
 
             <EditText
                 android:ems="10"
@@ -102,7 +134,22 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/requestDateEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/startDateTextView" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/endDateTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/endDateTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/startDateEditText" />
 
             <EditText
                 android:ems="10"
@@ -118,7 +165,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/startDateEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/endDateTextView" />
 
             <TextView
                 android:fontFamily="@font/quicksand"
@@ -153,6 +200,7 @@
             <Spinner
                 android:drawSelectorOnTop="true"
                 android:entries="@array/spinnerItems"
+                android:fontFamily="@font/quicksand"
                 android:id="@+id/createExpenseSheetSpinner"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -163,6 +211,36 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle4" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/transportCategoryTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/transportCategoryTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetSpinner" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/kilometersNumberTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/kilometersNumberTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportCategoryTextView" />
 
             <EditText
                 android:ems="10"
@@ -178,7 +256,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetSpinner" />
+                app:layout_constraintTop_toBottomOf="@+id/kilometersNumberTextView" />
 
             <TextView
                 android:fontFamily="@font/quicksand"
@@ -189,17 +267,33 @@
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:text="@string/transportExpenseMaximumAmount"
+                android:textColor="@color/red"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/kilometersNumberEditText" />
 
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/transportExpenseTextView1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseTextView1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseMaximumAmount" />
+
             <EditText
                 android:ems="10"
                 android:fontFamily="@font/quicksand"
-                android:hint="@string/transportExpenseEditText"
-                android:id="@+id/transportExpenseEditText"
+                android:hint="@string/expenseEditText"
+                android:id="@+id/transportExpenseEditText1"
                 android:inputType="numberDecimal"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -209,35 +303,112 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/transportExpenseMaximumAmount" />
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseTextView1" />
 
             <TextView
                 android:fontFamily="@font/quicksand"
-                android:id="@+id/expenseFileTextView1"
+                android:id="@+id/transportExpenseTextView2"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:text="@string/expenseFileTextView"
+                android:text="@string/ExpenseTextView2"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/transportExpenseEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseEditText1" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/transportExpenseEditText2"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseTextView2" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/transportExpenseTextView3"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseTextView3"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseEditText2" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/transportExpenseEditText3"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseTextView3" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/transportExpenseFileTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseEditText3" />
 
             <ImageView
                 android:id="@+id/transportExpenseFileImageView"
-                android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="50dp"
                 android:src="@drawable/image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/expenseFileTextView1"  />
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseFileTextView"  />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/expenseFileTextView1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_width="wrap_content"
+                android:text="@string/expenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.238"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transportExpenseFileTextView" />
 
             <TextView
                 android:fontFamily="@font/quicksand"
@@ -263,11 +434,27 @@
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:text="@string/accommodationExpenseMaximumAmount"
+                android:textColor="@color/red"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle5" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/nightsNumberTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/nightsNumberTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseMaximumAmount" />
 
             <EditText
                 android:ems="10"
@@ -283,13 +470,28 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseMaximumAmount" />
+                app:layout_constraintTop_toBottomOf="@+id/nightsNumberTextView" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/accommodationExpenseTextView1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseTextView1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nightsNumberEditText" />
 
             <EditText
                 android:ems="10"
                 android:fontFamily="@font/quicksand"
-                android:hint="@string/accommodationExpenseEditText"
-                android:id="@+id/accommodationExpenseEditText"
+                android:hint="@string/expenseEditText"
+                android:id="@+id/accommodationExpenseEditText1"
                 android:inputType="numberDecimal"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -299,22 +501,82 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nightsNumberEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseTextView1" />
 
             <TextView
-                android:id="@+id/expenseFileTextView2"
                 android:fontFamily="@font/quicksand"
+                android:id="@+id/accommodationExpenseTextView2"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:text="@string/expenseFileTextView"
+                android:text="@string/ExpenseTextView2"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseEditText1" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/accommodationExpenseEditText2"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseTextView2" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/accommodationExpenseTextView3"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseTextView3"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseEditText2" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/accommodationExpenseEditText3"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseTextView3" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/accommodationExpenseFileTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseEditText3" />
 
             <ImageView
                 android:id="@+id/accommodationExpenseFileImageView"
@@ -327,7 +589,24 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/expenseFileTextView2"  />
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseFileTextView"  />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/expenseFileTextView2"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_width="wrap_content"
+                android:text="@string/expenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.238"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accommodationExpenseFileTextView" />
 
             <TextView
                 android:fontFamily="@font/quicksand"
@@ -353,17 +632,33 @@
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:text="@string/foodExpenseMaximumAmount"
+                android:textColor="@color/red"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle6" />
 
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/foodExpenseTextView1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseTextView1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseMaximumAmount" />
+
             <EditText
                 android:ems="10"
                 android:fontFamily="@font/quicksand"
-                android:hint="@string/foodExpenseEditText"
-                android:id="@+id/foodExpenseEditText"
+                android:hint="@string/expenseEditText"
+                android:id="@+id/foodExpenseEditText1"
                 android:inputType="numberDecimal"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -373,22 +668,82 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/foodExpenseMaximumAmount" />
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseTextView1" />
 
             <TextView
-                android:id="@+id/expenseFileTextView3"
                 android:fontFamily="@font/quicksand"
+                android:id="@+id/foodExpenseTextView2"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:text="@string/expenseFileTextView"
+                android:text="@string/ExpenseTextView2"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/foodExpenseEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseEditText1" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/foodExpenseEditText2"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseTextView2" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/foodExpenseTextView3"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseTextView3"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseEditText2" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/foodExpenseEditText3"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseTextView3" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/foodExpenseFileTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseEditText3" />
 
             <ImageView
                 android:id="@+id/foodExpenseFileImageView"
@@ -401,7 +756,24 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/expenseFileTextView3"  />
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseFileTextView"  />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/expenseFileTextView3"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_width="wrap_content"
+                android:text="@string/expenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.238"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodExpenseFileTextView" />
 
             <TextView
                 android:fontFamily="@font/quicksand"
@@ -427,17 +799,33 @@
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:text="@string/otherExpenseMaximumAmount"
+                android:textColor="@color/red"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/createExpenseSheetTitle7" />
 
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/otherExpenseTextView1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseTextView1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseMaximumAmount" />
+
             <EditText
                 android:ems="10"
                 android:fontFamily="@font/quicksand"
-                android:hint="@string/otherExpenseEditText"
-                android:id="@+id/otherExpenseEditText"
+                android:hint="@string/expenseEditText"
+                android:id="@+id/otherExpenseEditText1"
                 android:inputType="numberDecimal"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -447,17 +835,29 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/otherExpenseMaximumAmount" />
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseTextView1" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/otherExpenseTextView2"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseTextView2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseEditText1" />
 
             <EditText
                 android:ems="10"
                 android:fontFamily="@font/quicksand"
-                android:gravity="start|top"
-                android:hint="@string/messageEditText"
-                android:id="@+id/messageEditText"
-                android:inputType="textMultiLine"
+                android:id="@+id/otherExpenseEditText2"
+                android:inputType="numberDecimal"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
@@ -465,17 +865,78 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/otherExpenseEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseTextView2" />
 
             <TextView
-                android:id="@+id/expenseFileTextView4"
                 android:fontFamily="@font/quicksand"
+                android:id="@+id/otherExpenseTextView3"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
-                android:text="@string/expenseFileTextView"
+                android:text="@string/ExpenseTextView3"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseEditText2" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/otherExpenseEditText3"
+                android:inputType="numberDecimal"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseTextView3" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/messageTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/messageTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseEditText3" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:hint="@string/messageEditText"
+                android:id="@+id/messageEditText"
+                android:inputType="textMultiLine"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/messageTextView" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/otherExpenseFileTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/ExpenseFileTextView"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -493,43 +954,154 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/expenseFileTextView4"  />
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseFileTextView"  />
 
-            <Button
-                android:backgroundTint="#08cbff"
+            <TextView
                 android:fontFamily="@font/quicksand"
-                android:id="@+id/manageExpenseSheetButton1"
+                android:id="@+id/expenseFileTextView4"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_width="wrap_content"
+                android:text="@string/expenseFileTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.238"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherExpenseFileTextView" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/manageExpenseSheetTitle2"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_width="wrap_content"
-                android:text="@string/manageExpenseSheetButton1"
+                android:layout_width="match_parent"
+                android:text="@string/manageExpenseSheetTitle2"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/otherExpenseFileImageView" />
 
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/treatmentStatusTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/treatmentStatusTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/manageExpenseSheetTitle2" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/treatmentStatusEditText"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/treatmentStatusTextView" />
+
+            <TextView
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/remarkTextView"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:text="@string/remarkTextView"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/treatmentStatusEditText" />
+
+            <EditText
+                android:ems="10"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/remarkEditText"
+                android:inputType="textMultiLine"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/remarkTextView" />
+
             <Button
                 android:backgroundTint="#08cbff"
                 android:fontFamily="@font/quicksand"
-                android:id="@+id/manageExpenseSheetButton2"
+                android:id="@+id/updateButton"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_width="wrap_content"
-                android:text="@string/manageExpenseSheetButton2"
+                android:text="@string/updateButton"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/manageExpenseSheetButton1" />
+                app:layout_constraintTop_toBottomOf="@+id/remarkEditText"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:backgroundTint="#08cbff"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/submitButton"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:text="@string/submitButton"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/remarkEditText"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:backgroundTint="#08cbff"
+                android:fontFamily="@font/quicksand"
+                android:id="@+id/deleteButton"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:text="@string/deleteButton"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/remarkEditText"
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

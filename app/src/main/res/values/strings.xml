@@ -10,10 +10,10 @@
     <string name="homeItem">Accueil</string>
     <string name="accountItem">Compte</string>
 
-    <string name="requestDateTextView">Création</string>
-    <string name="nightsNumberTextView">Nuitées</string>
-    <string name="totalAmountTextView">Montant</string>
-    <string name="treatmentStatusTextView">Traitement</string>
+    <string name="requestDateLinearLayoutTextView">Création</string>
+    <string name="nightsNumberLinearLayoutTextView">Nuitées</string>
+    <string name="totalAmountLinearLayoutTextView">Montant</string>
+    <string name="treatmentStatusLinearLayoutTextView">Traitement</string>
 
     <string name="createExpenseSheetTitle1">Créer une fiche de frais</string>
     <string name="createExpenseSheetInstructions">Attention : un budget est attitré pour chaque catégorie et correspond au montant maximum remboursé par l\'entreprise. Si dépassé, le reste est à votre charge. Veuillez laisser le champ vide, si aucune dépense n\'a été faite.</string>
@@ -26,27 +26,37 @@
     <string name="prompt">Sélectionnez un mode de transport</string>
     <string name="kilometersNumberEditText">Nombre total de kilomètres</string>
     <string name="transportExpenseMaximumAmount">Montant maximum : 2500 €</string>
-    <string name="transportExpenseEditText">Montant total (€)</string>
-    <string name="expenseFileTextView">Sélectionnez un justificatif : </string>
+    <string name="expenseFileTextView">Choisir un fichier...</string>
     <string name="createExpenseSheetTitle5">Hébergement</string>
-    <string name="accommodationExpenseMaximumAmount">Montant maximum : 250 €</string>
+    <string name="accommodationExpenseMaximumAmount">Montant maximum : 250 € / nuit</string>
     <string name="nightsNumberEditText">Nombre total de nuitées</string>
-    <string name="accommodationExpenseEditText">Montant total (€)</string>
     <string name="createExpenseSheetTitle6">Alimentation</string>
     <string name="foodExpenseMaximumAmount">Montant maximum : 300 €</string>
-    <string name="foodExpenseEditText">Montant total (€)</string>
     <string name="createExpenseSheetTitle7">Autres</string>
     <string name="otherExpenseMaximumAmount">Montant maximum : 200 €</string>
-    <string name="otherExpenseEditText">Montant total (€)</string>
     <string name="messageEditText">Écrire un message...</string>
-    <string name="createExpenseSheetButton">Soumettre</string>
 
     <string name="manageAccountTitle">Gérer mes informations</string>
     <string name="firstNameEditText">Prénom</string>
     <string name="lastNameEditText">Nom</string>
-    <string name="manageAccountButton1">Modifier</string>
-    <string name="manageAccountButton2">Soumettre</string>
-    <string name="manageExpenseSheetTitle">Gérer la fiche de frais n°</string>
-    <string name="manageExpenseSheetButton1">Modifier</string>
-    <string name="manageExpenseSheetButton2">Supprimer</string>
+
+    <string name="manageExpenseSheetTitle1">Gérer la fiche de frais n°</string>
+    <string name="requestDateTextView">Demande effectuée le :</string>
+    <string name="startDateTextView">Date de départ :</string>
+    <string name="endDateTextView">Date de retour :</string>
+    <string name="transportCategoryTextView">Type de transport : </string>
+    <string name="kilometersNumberTextView">Nombre total de kilomètres :</string>
+    <string name="nightsNumberTextView">Nombre total de nuitées :</string>
+    <string name="expenseEditText">Montant total (€)</string>
+    <string name="ExpenseTextView1">Montant total (€) :</string>
+    <string name="ExpenseTextView2">Montant total remboursé (€) :</string>
+    <string name="ExpenseTextView3">Reste total à payer (€) :</string>
+    <string name="ExpenseFileTextView">Justificatif : </string>
+    <string name="messageTextView">Message :</string>
+    <string name="manageExpenseSheetTitle2">Statut du traitement</string>
+    <string name="treatmentStatusTextView">Statut :</string>
+    <string name="remarkTextView">Motif du rejet :</string>
+    <string name="updateButton">Modifier</string>
+    <string name="submitButton">Soumettre</string>
+    <string name="deleteButton">Supprimer</string>
 </resources>

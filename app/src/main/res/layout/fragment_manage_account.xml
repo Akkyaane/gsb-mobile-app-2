@@ -4,16 +4,15 @@
     android:id="@+id/main"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
         android:background="#FFFFFF"
+        android:id="@+id/logo"
+        android:layout_height="100dp"
+        android:layout_width="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -45,7 +44,6 @@
         android:layout_width="match_parent"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/manageAccountTitle" />
 
@@ -62,7 +60,6 @@
         android:layout_width="match_parent"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstNameEditText" />
 
@@ -79,12 +76,11 @@
         android:layout_width="match_parent"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastNameEditText" />
 
     <Button
-        android:id="@+id/manageAccountButton1"
+        android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -93,7 +89,7 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="#08cbff"
         android:fontFamily="@font/quicksand"
-        android:text="@string/manageAccountButton1"
+        android:text="@string/updateButton"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +99,7 @@
         app:layout_constraintVertical_bias="0.007" />
 
     <Button
-        android:id="@+id/manageAccountButton2"
+        android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -112,7 +108,7 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="#08cbff"
         android:fontFamily="@font/quicksand"
-        android:text="@string/manageAccountButton2"
+        android:text="@string/submitButton"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

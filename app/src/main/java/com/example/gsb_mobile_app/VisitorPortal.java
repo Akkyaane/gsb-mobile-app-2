@@ -8,39 +8,37 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class VisitorPortal extends Fragment {
-    private static final String TAG = "VisitorPortal";
-    ProgressDialog progressDialog;
-    RequestQueue requestQueue;
+    private ProgressDialog progressDialog;
+    private RequestQueue requestQueue;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_visitor_portal, container, false);
+
         TextView visitorPortalTitle = view.findViewById(R.id.visitorPortalTitle);
         progressDialog = new ProgressDialog(getActivity());
-        requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue = Volley.newRequestQueue(requireActivity());
 
         Bundle bundle = getArguments();
+        assert bundle != null;
         String userId = bundle.getString("userId");
+        String kilometerCostsId = bundle.getString("kilometerCostsId");
         String firstName = bundle.getString("firstName");
         String lastName = bundle.getString("lastName");
-        String formattedData = "Bonjour - " + firstName + " " + lastName;
+        String formattedData = "Portail Visiteur - " + firstName + " " + lastName;
 
         visitorPortalTitle.setText(formattedData);
 
@@ -55,7 +53,7 @@ public class VisitorPortal extends Fragment {
         String gettingExpenseSheetsURL = "https://jeremiebayon.fr/api/controllers/portals/visitor.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, gettingExpenseSheetsURL, response -> {
             progressDialog.dismiss();
-            LinearLayout expenseSheetsList = getView().findViewById(R.id.expenseSheetsList);
+            LinearLayout expenseSheetsList = requireView().findViewById(R.id.expenseSheetsList);
             LayoutInflater inflater = LayoutInflater.from(getActivity());
 
             try {
@@ -80,7 +78,8 @@ public class VisitorPortal extends Fragment {
                         treatmentStatusTextView.setText(data.optString("treatment_status"));
 
                         final String expenseSheetId = data.optString("expense_sheet_id");
-                        expenseSheet.setOnClickListener(v -> manageExpenseSheetRequest(expenseSheetId));
+                        final String kilometerCostsId = data.optString("kilometer_costs_id");
+                        expenseSheet.setOnClickListener(v -> manageExpenseSheetRequest(expenseSheetId, kilometerCostsId));
 
                         expenseSheetsList.addView(expenseSheetItem);
                     }
@@ -107,7 +106,7 @@ public class VisitorPortal extends Fragment {
         requestQueue.add(stringRequest);
         progressDialog.show();
     }
-    private void manageExpenseSheetRequest(String expenseSheetId) {
+    private void manageExpenseSheetRequest(String expenseSheetId, String kilometerCostsId) {
         String gettingExpenseSheetsURL = "https://jeremiebayon.fr/api/controllers/functionalities/ExpenseSheet/ManageExpenseSheet.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, gettingExpenseSheetsURL, response -> {
             progressDialog.dismiss();
@@ -116,15 +115,13 @@ public class VisitorPortal extends Fragment {
                 JSONObject jsonObject = new JSONObject(response);
                 int status = jsonObject.getInt("status");
 
+                Toast.makeText(getActivity(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                 if (status == 200) {
-                    Toast.makeText(getActivity(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-                    ManageExpenseSheet fragment = ManageExpenseSheet.newInstance(jsonObject.getString("data"));
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    ManageExpenseSheet fragment = ManageExpenseSheet.newInstance(jsonObject.getString("data"), kilometerCostsId);
+                    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.frameLayout, fragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
-                } else {
-                    Toast.makeText(getActivity(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
