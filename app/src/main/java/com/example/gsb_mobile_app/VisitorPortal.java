@@ -50,7 +50,7 @@ public class VisitorPortal extends Fragment {
         return view;
     }
     private void gettingExpenseSheetsRequest(String userId) {
-        String gettingExpenseSheetsURL = "https://jeremiebayon.fr/api/controllers/portals/visitor.php";
+        String gettingExpenseSheetsURL = "https://jeremiebayon.fr/gsb-mobile-api/controllers/portals/visitor.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, gettingExpenseSheetsURL, response -> {
             progressDialog.dismiss();
             LinearLayout expenseSheetsList = requireView().findViewById(R.id.expenseSheetsList);
@@ -107,7 +107,7 @@ public class VisitorPortal extends Fragment {
         progressDialog.show();
     }
     private void manageExpenseSheetRequest(String expenseSheetId, String kilometerCostsId) {
-        String gettingExpenseSheetsURL = "https://jeremiebayon.fr/api/controllers/functionalities/ExpenseSheet/ManageExpenseSheet.php";
+        String gettingExpenseSheetsURL = "https://jeremiebayon.fr/gsb-mobile-api/controllers/functionalities/ExpenseSheet/ManageExpenseSheet.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, gettingExpenseSheetsURL, response -> {
             progressDialog.dismiss();
 

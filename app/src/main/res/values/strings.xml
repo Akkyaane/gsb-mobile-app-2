@@ -59,4 +59,5 @@
     <string name="updateButton">Modifier</string>
     <string name="submitButton">Soumettre</string>
     <string name="deleteButton">Supprimer</string>
+    <string name="logout">Déconnexion</string>
 </resources>

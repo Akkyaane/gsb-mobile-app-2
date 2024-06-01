@@ -438,7 +438,7 @@ public class ManageExpenseSheet extends Fragment {
                                            String endDateVarFormatted, String transportCategory, String kilometersNumberVar, String transportExpenseVar, String transportExpenseFileBase64,
                                            String nightsNumberVar, String accommodationExpenseVar, String accommodationExpenseFileBase64, String foodExpenseVar, String foodExpenseFileBase64,  String otherExpenseVar,
                                            String messageVar, String otherExpenseFileBase64) {
-        String updateExpenseSheetURL = "https://jeremiebayon.fr/api/controllers/functionalities/ExpenseSheet/UpdateExpenseSheet.php";
+        String updateExpenseSheetURL = "https://jeremiebayon.fr/gsb-mobile-api/controllers/functionalities/ExpenseSheet/UpdateExpenseSheet.php";
 
         progressDialog.setMessage("Envoi...");
         progressDialog.setCancelable(false);
@@ -523,7 +523,7 @@ public class ManageExpenseSheet extends Fragment {
         progressDialog.show();
     }
     private void deleteExpenseSheetRequest(String expenseSheetId) {
-        String deleteExpenseSheetURL = "https://jeremiebayon.fr/api/controllers/functionalities/ExpenseSheet/DeleteExpenseSheet.php";
+        String deleteExpenseSheetURL = "https://jeremiebayon.fr/gsb-mobile-api/controllers/functionalities/ExpenseSheet/DeleteExpenseSheet.php";
 
         progressDialog.setMessage("En cours...");
         progressDialog.setCancelable(false);
@@ -578,10 +578,10 @@ public class ManageExpenseSheet extends Fragment {
         manageExpenseSheetTitle1TextView.setText(manageExpenseSheetTitle1TextViewText + expenseSheetId);
 
         List<String> items = Arrays.asList(requestDate, startDate, endDate);
-        for (String item : items) {
-            requestDateEditText.setText(formatDate(item));
-            startDateEditText.setText(formatDate(item));
-            endDateEditText.setText(formatDate(item));
+        List<EditText> editTexts = Arrays.asList(requestDateEditText, startDateEditText, endDateEditText);
+
+        for (int i = 0; i < items.size(); i++) {
+            editTexts.get(i).setText(formatDate(items.get(i)));
         }
 
         String transportCategoryTextViewText = transportCategoryTextView.getText().toString();

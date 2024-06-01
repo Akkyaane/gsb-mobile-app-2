@@ -240,7 +240,7 @@ public class CreateExpenseSheet extends Fragment {
                                            String endDateVarFormatted, String transportCategory, String kilometersNumberVar, String transportExpenseVar, String transportExpenseFileBase64,
                                            String nightsNumberVar, String accommodationExpenseVar, String accommodationExpenseFileBase64, String foodExpenseVar, String foodExpenseFileBase64,  String otherExpenseVar,
                                            String messageVar, String otherExpenseFileBase64) {
-        String createExpenseSheetURL = "https://jeremiebayon.fr/api/controllers/functionalities/ExpenseSheet/CreateExpenseSheet.php";
+        String createExpenseSheetURL = "https://jeremiebayon.fr/gsb-mobile-api/controllers/functionalities/ExpenseSheet/CreateExpenseSheet.php";
 
         progressDialog.setMessage("Envoi...");
         progressDialog.setCancelable(false);

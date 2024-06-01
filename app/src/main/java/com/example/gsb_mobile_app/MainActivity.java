@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void loginRequest(String emailVar, String passwordVar) {
-        String loginURL = "https://jeremiebayon.fr/api/controllers/authentication/login.php";
+        String loginURL = "https://jeremiebayon.fr/gsb-mobile-api/controllers/authentication/login.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, loginURL, response -> {
             progressDialog.dismiss();
 

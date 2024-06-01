@@ -1,6 +1,7 @@
 package com.example.gsb_mobile_app;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ManageAccount extends Fragment {
-    private Button updateButton, submitButton;
+    private Button updateButton;
+    private Button submitButton;
     private EditText firstNameEditText, lastNameEditText, emailEditText;
     private ProgressDialog progressDialog;
     private RequestQueue requestQueue;
@@ -32,6 +34,7 @@ public class ManageAccount extends Fragment {
 
         updateButton = view.findViewById(R.id.updateButton);
         submitButton = view.findViewById(R.id.submitButton);
+        Button logoutButton = view.findViewById(R.id.logoutButton);
 
         firstNameEditText = view.findViewById(R.id.firstNameEditText);
         lastNameEditText = view.findViewById(R.id.lastNameEditText);
@@ -80,6 +83,10 @@ public class ManageAccount extends Fragment {
             }
         });
 
+        logoutButton.setOnClickListener(v -> {
+            getActivity().finish();
+        });
+
         return view;
     }
     private void updateFields(String state, EditText firstNameEditText, EditText lastNameEditText, EditText emailEditText) {
@@ -97,7 +104,7 @@ public class ManageAccount extends Fragment {
         }
     }
     private void manageAccountRequest(String userId, String firstNameVar, String lastNameVar, String emailVar) {
-        String manageAccountURL = "https://jeremiebayon.fr/api/controllers/functionalities/account/UpdateAccount.php";
+        String manageAccountURL = "https://jeremiebayon.fr/gsb-mobile-api/controllers/functionalities/account/UpdateAccount.php";
 
         progressDialog.setMessage("Envoi...");
         progressDialog.setCancelable(false);
